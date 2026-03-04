@@ -2,7 +2,7 @@ import tempfile
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
-import whisper
+import streamlit as st
 
 load_dotenv()
 
@@ -12,24 +12,23 @@ try:
 except:
     client = None
 
-# Load local whisper model once
-local_model = whisper.load_model("base")
+
+# ✅ Streamlit cache for Whisper model
+@st.cache_resource
+def load_whisper_model():
+    import whisper
+    model = whisper.load_model("base")
+    return model
 
 
 def transcribe_audio(audio_file):
-    """
-    Tries OpenAI API first.
-    Falls back to local Whisper if quota exceeded.
-    """
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
         tmp.write(audio_file.read())
         temp_path = tmp.name
 
     try:
-        # ======================
-        # Try OpenAI API
-        # ======================
+        # Try OpenAI API first
         if client:
             try:
                 with open(temp_path, "rb") as f:
@@ -37,15 +36,14 @@ def transcribe_audio(audio_file):
                         model="gpt-4o-mini-transcribe",
                         file=f
                     )
-
                 return transcript.text, 0.9
             except Exception:
-                pass  # fallback to local
+                pass
 
-        # ======================
-        # Local Whisper fallback
-        # ======================
-        result = local_model.transcribe(temp_path)
+        # ✅ fallback to cached Whisper
+        model = load_whisper_model()
+        result = model.transcribe(temp_path)
+
         return result["text"], 0.75
 
     finally:
