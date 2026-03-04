@@ -184,14 +184,3 @@ if extracted_text:
             user_feedback=None,
         )
 
-# ================= PLACEHOLDERS =================
-
-st.divider()
-st.subheader("Agent Trace")
-st.empty()
-
-st.subheader("Retrieved Context")
-st.empty()
-
-st.subheader("Final Answer")
-st.empty()
