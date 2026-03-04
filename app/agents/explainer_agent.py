@@ -1,24 +1,58 @@
+from openai import OpenAI
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+client = OpenAI()
+
+
 def run_explainer_agent(parsed_problem: dict, solver_output: dict):
     """
-    Generates student-friendly explanation
+    Uses LLM to generate a student-friendly step-by-step explanation
     """
 
     problem = parsed_problem["problem_text"]
-    result = solver_output["result"]
+    answer = solver_output["result"]
 
-    explanation = f"""
-Step-by-step solution:
+    prompt = f"""
+You are a math tutor helping a student solve a JEE-style problem.
 
-1. We interpret the problem as:
-   {problem}
+Problem:
+{problem}
 
-2. We apply the appropriate mathematical method.
+Final Answer:
+{answer}
 
-3. Solving gives the result:
-   {result}
+Explain the solution step-by-step in a clear way that a high school student can understand.
 
-4. Therefore, the final answer is:
-   {result}
+Rules:
+- Be concise
+- Show reasoning steps
+- Do not change the final answer
 """
 
-    return explanation.strip()
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role": "system", "content": "You are an expert math tutor."},
+                {"role": "user", "content": prompt},
+            ],
+            temperature=0.2,
+        )
+
+        explanation = response.choices[0].message.content
+        return explanation
+
+    except Exception:
+        # fallback explanation
+        return f"""
+Step-by-step solution:
+
+Problem: {problem}
+
+Final Answer: {answer}
+
+The symbolic solver computed this result.
+"""
