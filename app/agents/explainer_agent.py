@@ -1,16 +1,10 @@
+import streamlit as st
 from openai import OpenAI
-from dotenv import load_dotenv
-import os
 
-load_dotenv()
-
-client = OpenAI()
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 
 def run_explainer_agent(parsed_problem: dict, solver_output: dict):
-    """
-    Uses LLM to generate a student-friendly step-by-step explanation
-    """
 
     problem = parsed_problem["problem_text"]
     answer = solver_output["result"]
@@ -24,12 +18,8 @@ Problem:
 Final Answer:
 {answer}
 
-Explain the solution step-by-step in a clear way that a high school student can understand.
-
-Rules:
-- Be concise
-- Show reasoning steps
-- Do not change the final answer
+Explain the solution step-by-step clearly for a high school student.
+Do not change the final answer.
 """
 
     try:
@@ -42,17 +32,13 @@ Rules:
             temperature=0.2,
         )
 
-        explanation = response.choices[0].message.content
-        return explanation
+        return response.choices[0].message.content
 
     except Exception:
-        # fallback explanation
         return f"""
 Step-by-step solution:
 
 Problem: {problem}
 
 Final Answer: {answer}
-
-The symbolic solver computed this result.
 """
