@@ -1,0 +1,8 @@
+Limit of constant:
+lim(x→a) c = c
+
+Limit of sum:
+lim(f + g) = lim f + lim g
+
+Important limit:
+lim(x→0) (sin x)/x = 1

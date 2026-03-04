@@ -1,0 +1,8 @@
+Quadratic formula:
+x = (-b ± sqrt(b^2 - 4ac)) / (2a)
+
+Sum of AP:
+Sn = n/2 (a + l)
+
+Difference of squares:
+a^2 - b^2 = (a - b)(a + b)

@@ -1,0 +1,15 @@
+streamlit
+openai
+python-dotenv
+pydantic
+faiss-cpu
+sentence-transformers
+pillow
+pytesseract
+easyocr
+whisper
+numpy
+pandas
+scikit-learn
+sympy
+soundfile

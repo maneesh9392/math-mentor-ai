@@ -1,0 +1,8 @@
+Binomial expansion:
+(a + b)^n = Σ [nCr a^(n-r) b^r]
+
+General term:
+Tr+1 = nCr a^(n-r) b^r
+
+Middle term (n even):
+T(n/2 + 1)

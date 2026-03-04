@@ -1,0 +1,8 @@
+Mean:
+Mean = (Σx) / n
+
+Median:
+Middle value after sorting
+
+Mode:
+Most frequent value

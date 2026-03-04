@@ -1,0 +1,8 @@
+Basic power integral:
+∫ x^n dx = x^(n+1)/(n+1) + C
+
+Integral of sin:
+∫ sin x dx = -cos x + C
+
+Integral of cos:
+∫ cos x dx = sin x + C

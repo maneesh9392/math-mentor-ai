@@ -1,0 +1,8 @@
+Pythagorean identity:
+sin^2 x + cos^2 x = 1
+
+Tangent identity:
+tan x = sin x / cos x
+
+Double angle:
+sin(2x) = 2 sin x cos x

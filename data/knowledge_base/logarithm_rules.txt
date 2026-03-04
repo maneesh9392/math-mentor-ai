@@ -1,0 +1,8 @@
+Product rule:
+log(ab) = log a + log b
+
+Quotient rule:
+log(a/b) = log a - log b
+
+Power rule:
+log(a^n) = n log a

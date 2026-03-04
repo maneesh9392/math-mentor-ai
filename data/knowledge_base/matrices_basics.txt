@@ -1,0 +1,8 @@
+Matrix addition:
+(A + B)ij = Aij + Bij
+
+Matrix multiplication condition:
+Columns of A = Rows of B
+
+Identity matrix:
+AI = A

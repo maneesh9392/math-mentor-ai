@@ -1,0 +1,8 @@
+Union:
+A ∪ B = elements in A or B
+
+Intersection:
+A ∩ B = elements common to A and B
+
+De Morgan’s law:
+(A ∪ B)' = A' ∩ B'

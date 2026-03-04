@@ -1,0 +1,8 @@
+Power rule:
+d/dx (x^n) = n x^(n-1)
+
+Derivative of sin:
+d/dx (sin x) = cos x
+
+Derivative of cos:
+d/dx (cos x) = -sin x

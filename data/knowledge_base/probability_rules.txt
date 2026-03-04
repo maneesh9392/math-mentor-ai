@@ -1,0 +1,8 @@
+Union rule:
+P(A ∪ B) = P(A) + P(B) − P(A ∩ B)
+
+Independent events:
+P(A ∩ B) = P(A)P(B)
+
+Complement rule:
+P(A') = 1 - P(A)

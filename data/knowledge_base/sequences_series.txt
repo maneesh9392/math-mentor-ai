@@ -1,0 +1,8 @@
+Arithmetic sequence nth term:
+an = a + (n-1)d
+
+Geometric sequence nth term:
+an = a r^(n-1)
+
+Sum of GP:
+Sn = a(1 - r^n)/(1 - r)

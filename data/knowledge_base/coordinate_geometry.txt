@@ -1,0 +1,8 @@
+Distance formula:
+d = sqrt((x2 - x1)^2 + (y2 - y1)^2)
+
+Midpoint formula:
+M = ((x1 + x2)/2, (y1 + y2)/2)
+
+Slope formula:
+m = (y2 - y1)/(x2 - x1)
