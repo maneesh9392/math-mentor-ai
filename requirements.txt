@@ -7,7 +7,8 @@ sentence-transformers
 pillow
 pytesseract
 easyocr
-whisper
+openai-whisper
+torch
 numpy
 pandas
 scikit-learn
